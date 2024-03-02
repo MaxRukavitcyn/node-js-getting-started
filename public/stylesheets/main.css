@@ -30,7 +30,7 @@ body{
   background-color: #eee;
 }
 .container {
-  margin: 10% auto;
+  margin: 45% auto;
 }
 /* Базовые стили */
 .heart {
@@ -70,7 +70,7 @@ body{
 }
 
 .wrap_heart {
-  margin: 10em 46em;
+  margin: 10% 30%;
 }
 
 .text {
