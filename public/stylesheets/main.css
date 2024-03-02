@@ -74,8 +74,9 @@ body{
 }
 
 .text {
-  padding: 0 44% 0% 48%;
-  align-items: center;
-  margin-top: -7%;
+  margin: 42%;
+  scale: 5;
 }
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+
 
