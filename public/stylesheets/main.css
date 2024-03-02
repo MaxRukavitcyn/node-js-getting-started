@@ -34,7 +34,7 @@
   align-items: center;
 }
 body{
-  background-color: #eee;
+  background-color: #ffa6a6;
 }
 
 /* Базовые стили */
@@ -78,8 +78,9 @@ body{
 }
 
 .text {
-  margin: 42%;
+  margin-top: 50%;
   scale: 3.5;
+  color: red;
 }
 @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
 
