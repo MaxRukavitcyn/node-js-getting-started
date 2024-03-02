@@ -35,14 +35,14 @@ div {
 /* Базовые стили */
 .heart {
   position: relative;
-  width: 100px;
-  height: 175px;
+  width: 15%;
+  height: 440px;
   background-color: red;
   box-shadow: -1px 0px 2px #444;
   /* Скругляем верхние углы */
   -webkit-border-radius: 50px 50px 0 0;
   -moz-border-radius: 50px 50px 0 0;
-  border-radius: 50px 50px 0 0;
+  border-radius: 79% 61% 41% 0;
   /* Определяем угол наклона */
   -webkit-transform: rotate(315deg);
   -moz-transform: rotate(315deg);
@@ -53,16 +53,16 @@ div {
 /* Формируем правую часть */
 .heart:before {
   position: absolute;
-  width: 175px;
-  height: 100px;
+  width: 452px;
+  height: 61%;
   left: 0;
   bottom: 0;
   content: "";
   background-color: red;
   box-shadow: 0px 3px 3px #444444;
-  -webkit-border-radius: 50px 50px 0 0;
-  -moz-border-radius: 50px 50px 0 0;
-  border-radius: 0 50px 50px 0;
+  -webkit-border-radius: 38% 38% 0 0;
+  -moz-border-radius: 38% 38% 0 0;
+  border-radius: 39% 48% 48% 0;
 }
 /* Убираем тень при наведении */
 .heart:hover:before, .heart:hover{
@@ -70,5 +70,11 @@ div {
 }
 div {
   margin: 10% auto;
+}
+
+.text {
+  padding: 0 44% 0% 48%;
+  align-items: center;
+  margin-top: -7%;
 }
 
