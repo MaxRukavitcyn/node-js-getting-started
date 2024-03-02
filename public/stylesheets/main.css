@@ -29,7 +29,7 @@
 body{
   background-color: #eee;
 }
-div {
+.container {
   margin: 10% auto;
 }
 /* Базовые стили */
@@ -68,8 +68,9 @@ div {
 .heart:hover:before, .heart:hover{
   box-shadow:none;
 }
-div {
-  margin: 10% auto;
+
+.wrap_heart {
+  margin: 10% 37%;
 }
 
 .text {
