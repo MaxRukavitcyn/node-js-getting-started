@@ -25,7 +25,7 @@
     .jumbotron .lang-logo img {
       max-width: 100%; }
 
-
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
 
 .container {
   display: flex;
@@ -36,52 +36,84 @@
 body{
   background-color: #ffa6a6;
 }
-
-/* Базовые стили */
-.heart {
-  margin-left: -20%;
-  margin-top: 45%;
+.wrap-heart {
   position: relative;
-  width: 100px;
-  height: 175px;
-  background-color: red;
-  box-shadow: -1px 0px 2px #444;
-  /* Скругляем верхние углы */
-  -webkit-border-radius: 50px 50px 0 0;
-  -moz-border-radius: 50px 50px 0 0;
-  border-radius: 50px 50px 0 0;
-  /* Определяем угол наклона */
-  -webkit-transform: rotate(315deg);
-  -moz-transform: rotate(315deg);
-  -ms-transform: rotate(315deg);
-  -o-transform: rotate(315deg);
-  transform: rotate(315deg);
-  scale: 3.75;
+  margin-top: 50%;
 }
-/* Формируем правую часть */
-.heart:before {
+.heart {
+  animation: heartbeat 1s infinite;
+  background-color: red;
+  display: inline-block;
+  height: 50px;
+  margin: 0 10px;
+  position: relative;
+  top: 0;
+  transform: rotate(-45deg);
   position: absolute;
-  width: 175px;
-  height: 100px;
-  left: 0;
-  bottom: 0;
+  left: 45%; top: 45%;
+  width: 50px;
+}
+
+.heart:before,
+.heart:after {
   content: "";
   background-color: red;
-  box-shadow: 0px 3px 3px #444444;
-  -webkit-border-radius: 50px 50px 0 0;
-  -moz-border-radius: 50px 50px 0 0;
-  border-radius: 0 50px 50px 0;
+  border-radius: 50%;
+  height: 50px;
+  position: absolute;
+  width: 50px;
 }
-/* Убираем тень при наведении */
-.heart:hover:before, .heart:hover{
-  box-shadow:none;
+
+.heart:before {
+  top: -25px;
+  left: 0;
+}
+
+.heart:after {
+  left: 25px;
+  top: 0;
+}
+
+@keyframes heartbeat
+{
+  0%
+  {
+    transform: scale( 5 )
+    rotate(-45deg);
+  }
+  20%
+  {
+    transform: scale( 5.25 )
+    rotate(-45deg);
+  }
+  40%
+  {
+    transform: scale( 5.5 )
+    rotate(-45deg);
+  }
+  100%
+  {
+    transform: scale( 5 )
+    rotate(-45deg);
+  }
+}
+
+
+.Kat {
+  text-align: center;
 }
 
 .text {
   margin-top: 50%;
-  scale: 3.5;
   color: red;
+  font-size: 2em;
+  transform: scale(1);
+  animation: scale 2s forwards;
 }
-@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+@keyframes scale {
+  to {
+    transform: scale(3.2);
+  }
+}
 
 
