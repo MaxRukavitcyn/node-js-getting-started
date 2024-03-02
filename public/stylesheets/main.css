@@ -35,7 +35,7 @@ div {
 /* Базовые стили */
 .heart {
   position: relative;
-  width: 15%;
+  width: 290px;
   height: 440px;
   background-color: red;
   box-shadow: -1px 0px 2px #444;
@@ -53,8 +53,8 @@ div {
 /* Формируем правую часть */
 .heart:before {
   position: absolute;
-  width: 452px;
-  height: 61%;
+  width: 449px;
+  height: 277px;
   left: 0;
   bottom: 0;
   content: "";
