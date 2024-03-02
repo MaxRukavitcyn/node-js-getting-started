@@ -112,7 +112,7 @@ body{
 }
 @keyframes scale {
   to {
-    transform: scale(3.2);
+    transform: scale(3);
   }
 }
 
