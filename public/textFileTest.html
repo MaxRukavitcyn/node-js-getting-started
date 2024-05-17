@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>File Test</title>
+</head>
+<body>
+<div>
+  <input id="fileInput" type="file" accept=".txt"/>
+</div>
+<div>
+  <div>
+    <label for="fileContent">содержимое файла</label>
+  </div>
+  <textarea id="fileContent" readonly ></textarea>
+</div>
+<script>
+
+  const inputElement = document.getElementById('fileInput');
+  inputElement.addEventListener('change', (event) => {
+      const file = event.target.files[0];
+      const reader = new FileReader();
+      reader.onload = function (e) {
+          console.log('Cодержимое файла:', e.target.result);
+        let content = document.getElementById('fileContent');
+        content.innerText = e.target.result;
+      };
+    reader.readAsText(file);
+  });
+
+</script>
+</body>
+</html>
