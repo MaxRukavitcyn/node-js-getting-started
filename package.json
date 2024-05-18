@@ -18,6 +18,7 @@
   },
   "devDependencies": {
     "got": "14.2.0",
+    "multer": "^1.4.5-lts.1",
     "tape": "^4.7.0"
   },
   "repository": {

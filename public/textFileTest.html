@@ -3,30 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <title>File Test</title>
+    <script src="/libs/jquery-3.7.1.js"></script>
 </head>
 <body>
 <div>
-  <input id="fileInput" type="file" accept=".txt"/>
+    <input id="fileInput" type="file" accept=".txt"/>
 </div>
 <div>
-  <div>
-    <label for="fileContent">содержимое файла</label>
-  </div>
-  <textarea id="fileContent" readonly ></textarea>
+    <div>
+        <label for="fileContent">содержимое файла</label>
+    </div>
+    <textarea id="fileContent" readonly></textarea>
 </div>
-<script>
 
-  const inputElement = document.getElementById('fileInput');
-  inputElement.addEventListener('change', (event) => {
-      const file = event.target.files[0];
-      const reader = new FileReader();
-      reader.onload = function (e) {
-          console.log('Cодержимое файла:', e.target.result);
-        let content = document.getElementById('fileContent');
-        content.innerText = e.target.result;
-      };
-    reader.readAsText(file);
-  });
+<form enctype="multipart/form-data" id="fileForm">
+    <p>
+        <input id="fileContentInput" type="file" name="file" accept=".txt">
+    </p>
+    <input type="submit" value="Загрузить">
+</form>
+<div style="margin-top: 15px">
+    <button id="testPost" onclick="sendPost()">тест POST</button>
+</div>
+
+<script>
+    let content = document.getElementById('fileContent');
+
+    const inputElement = document.getElementById('fileInput');
+    inputElement.addEventListener('change', (event) => {
+        const file = event.target.files[0];
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            console.log('Cодержимое файла:', e.target.result);
+
+            content.innerText = e.target.result;
+        };
+        reader.readAsText(file);
+    });
+
+    // $(document).ready(function() {
+    //     $('#fileForm').submit(function(e) {
+    //         e.preventDefault(); // Предотвращаем отправку формы по умолчанию
+    //
+    //         let formData = new FormData(this); // Создаем объект FormData для хранения данных формы
+    //         $.ajax({
+    //             url: '/upload/file', // URL для отправки данных
+    //             type: 'POST',
+    //             data: formData,
+    //             processData: false, // Отключаем обработку данных по умолчанию
+    //             contentType: false, // Отключаем установку заголовка Content-Type по умолчанию
+    //             success: function(response) {
+    //                 // Обработка успешного ответа от сервера
+    //                 console.log(response);
+    //             },
+    //             error: function(xhr, status, error) {
+    //                 // Обработка ошибки
+    //                 console.error(error);
+    //             }
+    //         });
+    //     });
+    // });
+
+    let form = document.getElementById('fileForm');
+
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const fileInput = document.getElementById('fileContentInput');
+        const formData = new FormData();
+
+        formData.append('file', fileInput.files[0]);
+
+        fetch('/upload/file', {
+            method: 'POST',
+            body: formData
+        })
+            .then(response => response.json())
+            .then(data => {
+                // Обработка ответа сервера
+                console.log(data);
+
+            })
+            .catch(error => {
+                // Обработка ошибок
+                console.error(error);
+            });
+    })
+
+    function sendPost() {
+        fetch('/upload/test/post', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({'data': 'hello world'})
+        })
+            .then(response => response.json())
+            .then(data => {
+                // Обработка ответа сервера
+                console.log(data);
+                content.innerText = data.response.data
+            })
+            .catch(error => {
+                // Обработка ошибок
+                console.error(error);
+            });
+    }
+
 
 </script>
 </body>
